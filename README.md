@@ -1,5 +1,4 @@
-# RapidMinerOverview
-Introductory overview of RapidMiner
+# RapidMiner Overview
 
 This repository contains various material in support of the RapidMiner overview talk planned to be given to the Reading Data Science group in March 2019.
 
