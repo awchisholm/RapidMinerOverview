@@ -14,5 +14,5 @@ We will cover
 
 At the end of the talk, attendees will have enough information to allow them to 
 
-About me
+## About me
 I am data scientist and product manager. Day to day, I use R, some Python and, of course, RapidMiner. I have been using RapidMiner for nearly 10 years, I am a certified RapidMiner Master, and I have created on-line RapidMiner training material. I have also authored and edited books about RapidMiner and Data Mining in general.
