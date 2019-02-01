@@ -1,0 +1,84 @@
+---
+title: "RapidMiner Overview"
+author: "Andrew Chisholm"
+date: "1 February 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(xtable)
+library(knitr)
+```
+
+## About me
+
+- Andrew Chisholm
+- Data Scientist and Product Manager
+- Recent Master’s in Data Science
+- Telecoms industry
+- Certified RapidMiner Master – number 007
+- Lots of R and occasionally Python
+- Author and book editor
+- Winner of a data mining competition
+
+## Topics
+
+* Installation
+* GUI overview
+* Terminology
+* Making a process
+* Running a process
+* Other things
+
+## Installation
+
+* RapidMiner Studio
+    + Download from RapidMiner.com
+    + Installs on Windows, Mac and Linux
+* Java version 8 required
+* Community version is limited to 10,000 rows
+* Other products also available – we won’t look at these today
+    + RapidMiner Server
+    + Radoop – Hadoop for RapidMiner
+
+## GUI Overview
+
+```{r, results = 'asis', echo = F}
+
+topics = data.frame(topics = c(
+'Process',
+'Operators',
+'Parameters',
+'Repository',
+'Help',
+'Panels',
+'Re-arranging panels',
+'Results view',
+'Import/export process',
+'XML view',
+'Marketplace',
+'Sub-processes',
+'Debugging',
+'Ordering of operators',
+'Database connections',
+'Comments',
+'Spark/Radoop',
+'Cloud'))
+kable(topics)
+```
+some words
+
+## Terminology - remember these
+
+* Process → a collection of operators performing a task
+* Operator → a small piece of functionality that performs a distinct action
+* Example set → Data
+* Example → a single row of an example set
+* Attribute → a column in an example set
+* Label → a known value that is associated with an example and which is to be predicted
+
+## Making a process
+
+* Drag data from repository
+* Connect output
