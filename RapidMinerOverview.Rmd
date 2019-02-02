@@ -17,12 +17,13 @@ library(kableExtra)
 
 - Andrew Chisholm
 - Data Scientist and Product Manager
-- Recent Master’s in Data Science
+- Recent MSc in Data Science
 - Telecoms industry
 - Certified RapidMiner Master – number 007
 - Lots of R and occasionally Python
 - Author and book editor
 - Winner of a data mining competition
+- https://www.linkedin.com/in/andrew-chisholm-72836b/
 
 ## Topics
 
