@@ -2,7 +2,8 @@
 title: "RapidMiner Overview"
 author: "Andrew Chisholm"
 date: "1 February 2019"
-output: ioslides_presentation
+output: 
+  ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -96,11 +97,17 @@ kable(topics) %>%
 * 200 training examples: we will build a model using these
 * 8 test examples: we will use the model to predict these
 * We will build the process in stages
+* We will include cross validation to estimate performance on unseen data
 
 <div class="notes">
 - Drag operators
+- Finding operators
+- Left click, right click
+- Enable/Disable
 - Connect operators
 - Attribute roles
+- Attribute types - nominal, real, integer, boolean, date
+- Building blocks - easier than dragging operators
 </div>
 
 ## Changing things
@@ -108,6 +115,11 @@ kable(topics) %>%
 * It is easy to change things
 * Different models for example
 * Manipulating the data
+
+<div class="notes">
+- Replace operator
+- Example set meta data
+</div>
 
 ## Where to go next
 
@@ -118,5 +130,4 @@ kable(topics) %>%
     + RapidMinerResources - my content - a bit out of date now
 * Blogs
 * Books
-
 
