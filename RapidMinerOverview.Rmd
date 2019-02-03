@@ -2,8 +2,7 @@
 title: "RapidMiner Overview"
 author: "Andrew Chisholm"
 date: "1 February 2019"
-output: 
-  ioslides_presentation
+output:  ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -30,9 +29,9 @@ library(kableExtra)
 * Installation
 * GUI overview
 * Terminology
-* Making a process
-* Running a process
-* Other things
+* Making a prediction process
+* Changing things
+* Where to go next
 
 ## Installation
 
@@ -45,10 +44,18 @@ library(kableExtra)
     + RapidMiner Server
     + Radoop – Hadoop for RapidMiner
 
+## Terminology - remember these
+
+* **Process**: a collection of operators performing a task
+* **Operator**: a small piece of functionality that performs a distinct action
+* **Example set**: Data
+* **Example**: a single row of an example set
+* **Attribute**: a column in an example set
+* **Label**: a known value that is associated with an example and which is to be predicted
+
 ## GUI Overview
 
 ```{r, results = 'asis', echo = F}
-
 topics = data.frame(
 	t1 = c(
 		'Process',
@@ -78,22 +85,32 @@ topics = data.frame(
 colnames(topics) = NULL
 kable(topics) %>% 
 	kable_styling(bootstrap_options = 'striped', font_size = 26) %>%
-	column_spec(1:3, width_max='2em', width_min = '2em') %>%
-	row_spec(1:6, align = 'c')
+	column_spec(1:3, width_max='2em', width_min = '2em')
+#%>%#
+#	row_spec(1:6, align = 'c')
 ```
 
-## Terminology - remember these
+## Making a prediction process
 
-* Process → a collection of operators performing a task
-* Operator → a small piece of functionality that performs a distinct action
-* Example set → Data
-* Example → a single row of an example set
-* Attribute → a column in an example set
-* Label → a known value that is associated with an example and which is to be predicted
+* Simple process using the sonar data set
+* 200 training examples: we will build a model using these
+* 8 test examples: we will use the model to predict these
+* We will build the process in stages
 
-## Making a process
+## Changing things
 
-* Drag data from repository
-* Connect output
+* It is easy to change things
+* Different models for example
+* Changing the data
 
-## 
+## Where to go next
+
+* There is a lot of help out there
+* RapidMiner has an active community 
+* Stackoverflow and CrossValidated
+* Video material exists
+    + RapidMinerResources - my content - a bit out of date now
+* Blogs
+* Books
+
+

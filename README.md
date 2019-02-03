@@ -8,9 +8,9 @@ We will cover
 
 * Installation of RapidMiner Studio: Community Edition
 * GUI features
-* Creating a model
-* Understanding the results 
-* What to do next
+* Creating a prediction process
+* Changing things 
+* Where to go next
 
 At the end of the talk, attendees will have enough information to help them decide if RapidMiner is for them and to allow them to continue to use it.
 
