@@ -2,7 +2,7 @@
 title: "RapidMiner Overview"
 author: "Andrew Chisholm"
 date: "1 February 2019"
-output:  ioslides_presentation
+output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
@@ -97,11 +97,17 @@ kable(topics) %>%
 * 8 test examples: we will use the model to predict these
 * We will build the process in stages
 
+<div class="notes">
+- Drag operators
+- Connect operators
+- Attribute roles
+</div>
+
 ## Changing things
 
 * It is easy to change things
 * Different models for example
-* Changing the data
+* Manipulating the data
 
 ## Where to go next
 
