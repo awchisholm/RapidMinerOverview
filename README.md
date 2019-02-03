@@ -12,7 +12,7 @@ We will cover
 * Understanding the results 
 * What to do next
 
-At the end of the talk, attendees will have enough information to allow them to continue to use RapidMiner.
+At the end of the talk, attendees will have enough information to help them decide if RapidMiner is for them and to allow them to continue to use it.
 
 The processes and content shown in the talk are stored in this repository.
 
