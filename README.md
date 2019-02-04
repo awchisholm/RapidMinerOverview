@@ -2,7 +2,7 @@ _This repository contains various material in support of the RapidMiner overview
 
 ## RapidMiner Overview
 
-RapidMiner is an extremely powerful and easy to use environment for data science. The clue is in the name: RapidMiner. It really is the work of a few minutes to rapidly create a machine learning model without having to write any software. Of course, there is a learning curve, and this talk will give a basic introduction and overview based on an expert's view but aimed for beginners. The intention is to help get you up the learning curve more quickly, make a first model, and aid the decision to make RapidMiner part of your day-to-day work.
+RapidMiner is an extremely powerful and easy to use environment for data science. The clue is in the name: RapidMiner. It really is the work of a few minutes to rapidly create a machine learning model without having to write any software. Of course, there is a learning curve, and this talk will give a basic introduction and overview based on an expert's view but aimed for beginners. The intention is to help get you up the learning curve more quickly, make a first model, and help you decide if RapidMiner could be part of your day-to-day work.
 
 We will cover 
 
