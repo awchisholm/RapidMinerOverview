@@ -1,7 +1,7 @@
 ---
 title: "RapidMiner Overview"
 author: "Andrew Chisholm"
-date: "1 February 2019"
+date: "26 March 2019"
 output: 
   ioslides_presentation
 ---
@@ -30,7 +30,7 @@ library(kableExtra)
 * Installation
 * GUI overview
 * Terminology
-* Making a prediction process
+* Rapidly making a prediction process
 * Changing things
 * Where to go next
 
@@ -64,7 +64,8 @@ topics = data.frame(
 		'Parameters',
 		'Repository',
 		'Help',
-		'Panels'
+		'Panels',
+		'Meta data'
 		),
 	t2 = c(
 		'Re-arranging panels',
@@ -72,7 +73,8 @@ topics = data.frame(
 		'Import/export process',
 		'XML view',
 		'Marketplace',
-		'Sub-processes'
+		'Sub-processes',
+		'Building blocks'
 		),
 	t3 = c(
 		'Debugging',
@@ -80,18 +82,29 @@ topics = data.frame(
 		'Database connections',
 		'Comments',
 		'Spark/Radoop',
-		'Cloud'
-		)
+		'Cloud',
+		'Replace operator'
+		),
+	t4 = c(
+	  'Drag operators',
+    'Finding operators',
+		'Left click, right click',
+		'Enable/Disable',
+		'Connect operators',
+		'Attribute roles',
+		'Attribute types'
+		
+	  )
 	)
 colnames(topics) = NULL
 kable(topics) %>% 
-	kable_styling(bootstrap_options = 'striped', font_size = 26) %>%
-	column_spec(1:3, width_max='2em', width_min = '2em')
+	kable_styling(bootstrap_options = 'striped', font_size = 22) %>%
+	column_spec(1:4, width_max='2em', width_min = '2em')
 #%>%#
 #	row_spec(1:6, align = 'c')
 ```
 
-## Making a prediction process
+## Rapidly making a prediction process
 
 * Simple process using the sonar data set
 * 200 training examples: we will build a model using these
@@ -113,8 +126,14 @@ kable(topics) %>%
 ## Changing things
 
 * It is easy to change things
-* Different models for example
+    + Different models
+    + Different performance measures
 * Manipulating the data
+    + Change features
+    + Select features
+* Finding a better model
+    + Forward selection
+    + Evolutionary selection
 
 <div class="notes">
 - Replace operator
@@ -129,5 +148,6 @@ kable(topics) %>%
 * Video material exists
     + RapidMinerResources - my content - a bit out of date now
 * Blogs
+    + https://rapidminernotes.blogspot.com/ - my geeky blog
 * Books
 
