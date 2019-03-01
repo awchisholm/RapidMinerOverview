@@ -54,7 +54,7 @@ library(kableExtra)
 * **Attribute**: a column in an example set
 * **Label**: a known value that is associated with an example and which is to be predicted
 
-## GUI Overview
+## GUI Overview - bingo card
 
 ```{r, results = 'asis', echo = F}
 topics = data.frame(
