@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.2.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.2.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="9.2.001" expanded="true" height="68" name="Retrieve TrainingData" width="90" x="112" y="34">
+        <parameter key="repository_entry" value="//Local Repository/processes/RMTalk/TrainingData"/>
+      </operator>
+      <operator activated="true" class="optimize_selection_evolutionary" compatibility="9.2.001" expanded="true" height="103" name="Optimize Selection (Evolutionary)" width="90" x="380" y="34">
+        <parameter key="use_exact_number_of_attributes" value="false"/>
+        <parameter key="restrict_maximum" value="false"/>
+        <parameter key="min_number_of_attributes" value="1"/>
+        <parameter key="max_number_of_attributes" value="1"/>
+        <parameter key="exact_number_of_attributes" value="1"/>
+        <parameter key="initialize_with_input_weights" value="false"/>
+        <parameter key="population_size" value="5"/>
+        <parameter key="maximum_number_of_generations" value="10"/>
+        <parameter key="use_early_stopping" value="false"/>
+        <parameter key="generations_without_improval" value="2"/>
+        <parameter key="normalize_weights" value="true"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="user_result_individual_selection" value="false"/>
+        <parameter key="show_population_plotter" value="false"/>
+        <parameter key="plot_generations" value="10"/>
+        <parameter key="constraint_draw_range" value="false"/>
+        <parameter key="draw_dominated_points" value="true"/>
+        <parameter key="maximal_fitness" value="Infinity"/>
+        <parameter key="selection_scheme" value="tournament"/>
+        <parameter key="tournament_size" value="0.25"/>
+        <parameter key="start_temperature" value="1.0"/>
+        <parameter key="dynamic_selection_pressure" value="true"/>
+        <parameter key="keep_best_individual" value="false"/>
+        <parameter key="save_intermediate_weights" value="false"/>
+        <parameter key="intermediate_weights_generations" value="10"/>
+        <parameter key="p_initialize" value="0.5"/>
+        <parameter key="p_mutation" value="-1.0"/>
+        <parameter key="p_crossover" value="0.5"/>
+        <parameter key="crossover_type" value="uniform"/>
+        <process expanded="true">
+          <operator activated="true" class="concurrency:cross_validation" compatibility="8.2.000" expanded="true" height="145" name="Validation" width="90" x="179" y="34">
+            <parameter key="split_on_batch_attribute" value="false"/>
+            <parameter key="leave_one_out" value="false"/>
+            <parameter key="number_of_folds" value="3"/>
+            <parameter key="sampling_type" value="stratified sampling"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="enable_parallel_execution" value="true"/>
+            <process expanded="true">
+              <operator activated="true" class="neural_net" compatibility="9.2.001" expanded="true" height="82" name="Neural Net" width="90" x="447" y="34">
+                <list key="hidden_layers"/>
+                <parameter key="training_cycles" value="200"/>
+                <parameter key="learning_rate" value="0.01"/>
+                <parameter key="momentum" value="0.9"/>
+                <parameter key="decay" value="false"/>
+                <parameter key="shuffle" value="true"/>
+                <parameter key="normalize" value="true"/>
+                <parameter key="error_epsilon" value="1.0E-4"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <connect from_port="training set" to_op="Neural Net" to_port="training set"/>
+              <connect from_op="Neural Net" from_port="model" to_port="model"/>
+              <portSpacing port="source_training set" spacing="0"/>
+              <portSpacing port="sink_model" spacing="0"/>
+              <portSpacing port="sink_through 1" spacing="0"/>
+              <description align="left" color="green" colored="true" height="80" resized="true" width="248" x="37" y="137">In the training phase, a model is built on the current training data set. (90 % of data by default, 10 times)</description>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="apply_model" compatibility="9.2.001" expanded="true" height="82" name="Apply Model" width="90" x="45" y="34">
+                <list key="application_parameters"/>
+                <parameter key="create_view" value="false"/>
+              </operator>
+              <operator activated="true" class="performance" compatibility="9.2.001" expanded="true" height="82" name="Performance" width="90" x="179" y="34">
+                <parameter key="use_example_weights" value="true"/>
+              </operator>
+              <connect from_port="model" to_op="Apply Model" to_port="model"/>
+              <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
+              <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+              <connect from_op="Performance" from_port="performance" to_port="performance 1"/>
+              <connect from_op="Performance" from_port="example set" to_port="test set results"/>
+              <portSpacing port="source_model" spacing="0"/>
+              <portSpacing port="source_test set" spacing="0"/>
+              <portSpacing port="source_through 1" spacing="0"/>
+              <portSpacing port="sink_test set results" spacing="0"/>
+              <portSpacing port="sink_performance 1" spacing="0"/>
+              <portSpacing port="sink_performance 2" spacing="0"/>
+              <description align="left" color="blue" colored="true" height="103" resized="true" width="315" x="38" y="137">The model created in the Training step is applied to the current test set (10 %).&lt;br/&gt;The performance is evaluated and sent to the operator results.</description>
+            </process>
+            <description align="center" color="transparent" colored="false" width="126">A cross-validation evaluating a decision tree model.</description>
+          </operator>
+          <operator activated="true" class="log" compatibility="9.2.001" expanded="true" height="82" name="Log" width="90" x="380" y="85">
+            <list key="log">
+              <parameter key="generation" value="operator.Optimize Selection (Evolutionary).value.generation"/>
+              <parameter key="feature_names" value="operator.Optimize Selection (Evolutionary).value.feature_names"/>
+              <parameter key="performance" value="operator.Optimize Selection (Evolutionary).value.performance"/>
+            </list>
+            <parameter key="sorting_type" value="none"/>
+            <parameter key="sorting_k" value="100"/>
+            <parameter key="persistent" value="false"/>
+          </operator>
+          <connect from_port="example set" to_op="Validation" to_port="example set"/>
+          <connect from_op="Validation" from_port="performance 1" to_op="Log" to_port="through 1"/>
+          <connect from_op="Log" from_port="through 1" to_port="performance"/>
+          <portSpacing port="source_example set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_performance" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Retrieve TrainingData" from_port="output" to_op="Optimize Selection (Evolutionary)" to_port="example set in"/>
+      <connect from_op="Optimize Selection (Evolutionary)" from_port="example set out" to_port="result 1"/>
+      <connect from_op="Optimize Selection (Evolutionary)" from_port="weights" to_port="result 2"/>
+      <connect from_op="Optimize Selection (Evolutionary)" from_port="performance" to_port="result 3"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+    </process>
+  </operator>
+</process>

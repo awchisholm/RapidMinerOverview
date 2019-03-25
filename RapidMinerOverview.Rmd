@@ -37,13 +37,18 @@ library(kableExtra)
 ## Installation
 
 * RapidMiner Studio
+    + Community version supports 10,000 rows
+    + Follow the referral link below to get an extra 10,000 rows
     + Download from RapidMiner.com
     + Installs on Windows, Mac and Linux
-* Java version 8 required
-* Community version is limited to 10,000 rows
+    + Java version 8 required
 * Other products also available – we won’t look at these today
     + RapidMiner Server
     + Radoop – Hadoop for RapidMiner
+    
+```
+https://my.rapidminer.com/nexus/account/index.html#ref?id=vb41btp8dq9c
+```
 
 ## Terminology - remember these
 
@@ -128,13 +133,13 @@ kable(topics) %>%
 * It is easy to change things
     + Different models
     + Different performance measures
-* Manipulating the data
-    + Change features
-    + Select features
 * Finding a better model
     + Forward selection
     + Evolutionary selection
-
+* Manipulating the data
+    + Change features
+    + Select features
+    
 <div class="notes">
 - Replace operator
 - Example set meta data
