@@ -14,7 +14,7 @@ We will cover
 
 At the end of the talk, attendees will have enough information to help them decide if RapidMiner is for them and to allow them to continue to use it.
 
-The processes and content shown in the talk are stored in this repository.
+The processes and content shown in the talk are stored in this repository. The file RapidMinerOverview.html contains the slides and these are also contained in the file RapidMinerOverview.zip.
 
 ## About me
 I am data scientist and product manager working in the telecommunications industry. Day to day, I use R, Python from time to time, and, of course, RapidMiner. I have been using RapidMiner for nearly 10 years, I am a certified RapidMiner Master, and I have created on-line RapidMiner training material. I have also authored and edited books about RapidMiner and Data Mining in general.
