@@ -150,6 +150,7 @@ https://imagebin.ca/v/4bX9qe3IBUp9
 
 ## Where to go next
 
+* These slides are here https://github.com/awchisholm/RapidMinerOverview 
 * There is a lot of help out there
 * RapidMiner has an active community 
 * StackOverflow and CrossValidated
