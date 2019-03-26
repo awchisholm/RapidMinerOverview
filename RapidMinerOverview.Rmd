@@ -108,6 +108,9 @@ kable(topics) %>%
 #%>%#
 #	row_spec(1:6, align = 'c')
 ```
+```
+https://imagebin.ca/v/4bX9qe3IBUp9
+```
 
 ## Rapidly making a prediction process
 
@@ -149,8 +152,9 @@ kable(topics) %>%
 
 * There is a lot of help out there
 * RapidMiner has an active community 
-* Stackoverflow and CrossValidated
+* StackOverflow and CrossValidated
 * Video material exists
+    + Many videos on the RapidMiner site
     + RapidMinerResources - my content - a bit out of date now
 * Blogs
     + https://rapidminernotes.blogspot.com/ - my geeky blog
